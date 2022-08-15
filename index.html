@@ -53,6 +53,7 @@ tr:nth-child(even) {
     <title>Welcome to Aqua-Aerobic Systems, Inc</title>
   </head>
   <body style="font-family: sans-serif;font-size: large;">
+           <div id="container">
      <h1 style="text-align: center;">Enter below information to get your QR Code!</h1>
     <form>
       
@@ -66,13 +67,12 @@ tr:nth-child(even) {
       <br>
         <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua</label><br><br>
        <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
-      
-      <canvas id="qrcode"></canvas> 
-
-
-   <button id="get_qr_code" type="button" style="background-color: orangered;">Schedule Meeting (All fields required!)</button>  
+   <button id="get_qr_code" type="button" style="background-color: orangered;">Get QR Code</button>  
+      <button id="reset" type="button" style="background-color: orangered;">Reset Form</button>  
     </form>
             </div>
+    <canvas id="note"></canvas> 
+     <canvas id="qrcode"></canvas> 
     <div id="table"></div>
   </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
@@ -96,6 +96,7 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
+         document.getElementById("fname").value = "Show QR code to iPad app!<br>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
@@ -107,9 +108,16 @@ tr:nth-child(even) {
   size: 128,
   value: key
 });
+       document.getElementById('container').style.visibility = 'hidden';
+       document.getElementById('lname').style.visibility = 'hidden';
+       document.getElementById('date').style.visibility = 'hidden';
       }
+     
+      var loadweb = function(){
+      window.location.href = window.location.pathname;
+       }
       document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
-  
+   document.getElementById("reset").addEventListener("click", loadweb);
   
         })();
   </script>
