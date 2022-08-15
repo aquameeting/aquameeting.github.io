@@ -61,7 +61,6 @@ tr:nth-child(even) {
      <div id="note"></div> <br>
      <canvas id="qrcode"></canvas> 
      <br> <a href="#" id="downloader" onclick="download()" download="image.png">Download!</a>
-<canvas id="qrcode"></canvas>
     </center>
     </div>
     <form>
@@ -103,7 +102,7 @@ tr:nth-child(even) {
 }
         }
   function download(){
-    document.getElementById("downloader").download = "image.png";
+    document.getElementById("downloader").download = "download.png";
     document.getElementById("downloader").href = document.getElementById("qrcode").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }
      
