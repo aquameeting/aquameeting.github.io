@@ -89,9 +89,9 @@ tr:nth-child(even) {
         var lname = document.getElementById("lname");
           var date = document.getElementById("date");
          var data = {
-          "key": 'https://aquafrontdesk.github.io/?id=' + fname.value + lname.value + date.value
+          "key": 'https://aquafrontdesk.github.io/?key=' + fname.value + lname.value + date.value
         }
-        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '') {
+        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' + '&checkin=Now') {
      createqrcode(data);
 } else {
     alert("All fields required!")
