@@ -89,8 +89,8 @@ tr:nth-child(even) {
         var fname = document.getElementById("fname");
         var lname = document.getElementById("lname");
           var date = document.getElementById("date");
-        fname = fname.value.trim();
-           lname = lname.value.trim();
+        fname = fname.replace( /^\s+|\s+$/g, '' );
+           lname =  lname.replace( /^\s+|\s+$/g, '' );
          var data = {
           "key": fname.value + lname.value + date.value + '&checkin=Now'
         }
