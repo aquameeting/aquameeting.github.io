@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style media="screen">
         /* Style inputs */
              input[type=text], input[type=email], textarea {
@@ -114,6 +114,8 @@ tr:nth-child(even) {
   size: 250,
   value: key
 });
+              document.getElementById("viewport").setAttribute("content",
+      "initial-scale=1.0; maximum-scale=1.0; user-scalable=0;");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
         document.getElementById('header').style.display = 'none';
