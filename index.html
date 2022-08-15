@@ -86,11 +86,9 @@ tr:nth-child(even) {
     (function() {
       var viewport_meta = document.getElementById('viewport-meta');
       var get_qr_code = function(){
-        var fname = document.getElementById("fname").value;
-        var lname = document.getElementById("lname").value;
-          var date = document.getElementById("date").value;
-        fname =  fname.toString().trim();
-           lname = lname.toString().trim();
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+          var date = document.getElementById("date");
          var data = {
           "key": fname.value + lname.value + date.value + '&checkin=Now'
         }
