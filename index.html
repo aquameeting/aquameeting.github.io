@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <style media="screen">
+        /* Style inputs */
+             input[type=text], input[type=email], textarea {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          background-color: aliceblue;
+        }
+        
+         
+
+        /* Style the submit button */
+     /* Style the submit button */
+        button {
+          width: 100%;
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: large;
+        }
+
+        /* Add a background color to the submit button on mouse-over */
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+      </style>
+    <title>Welcome to Aqua-Aerobic Systems, Inc</title>
+  </head>
+  <body style="font-family: sans-serif;font-size: large;">
+     <h1 style="text-align: center;">Enter below information to get your QR Code!</h1>
+    <form>
+      
+      <label for="fname" style="color: black;font-weight: bold;">Guest First Name</label>
+      <input type="text" id="fname" name="fname" placeholder="Enter their first name..">
+      
+       <label for="lname" style="color: black;font-weight: bold;">Guest Last Name</label>
+      <input type="text" id="lname" name="lname" placeholder="Enter their last name..">
+      
+ 
+      <br>
+        <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua</label><br><br>
+       <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
+      
+      <canvas id="qrcode"></canvas> 
+
+
+   <button id="get_qr_code" type="button" style="background-color: orangered;">Schedule Meeting (All fields required!)</button>  
+    </form>
+            </div>
+    <div id="table"></div>
+  </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+<script type="text/javascript">
+    (function() {
+      
+      var get_qr_code = function(){
+        var fname = document.getElementById("fname");
+        var lname = document.getElementById("lname");
+          var date = document.getElementById("date");
+         var data = {
+          "key": 'https://aquafrontdesk.github.io/?id=' + fname.value + lname.value + date.value
+        }
+        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '') {
+     createqrcode(data);
+} else {
+    alert("All fields required!")
+}
+        }
+      }
+     var createqrcode = function(data){
+        var key = data["key"];
+      var qrcode = new QRious({
+  element: document.getElementById("qrcode"),
+  background: '#ffffff',
+  backgroundAlpha: 1,
+  foreground: '#5868bf',
+  foregroundAlpha: 1,
+  level: 'H',
+  padding: 0,
+  size: 128,
+  value: key
+});
+      }
+      document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
+  
+  
+        })();
+  </script>
+</html>
