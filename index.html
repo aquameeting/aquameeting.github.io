@@ -57,7 +57,7 @@ tr:nth-child(even) {
     <div id="header"> <h2 style="text-align: center;">Enter below data to get your QR Code!</h2></div>
     <div id="qr" style="display: none;">
     <center>
-       <div id="note"></div> 
+     <div id="note"></div> <br>
      <canvas id="qrcode"></canvas> 
     </center>
     </div>
@@ -101,7 +101,7 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
-         document.getElementById('note').innerHTML= "Show QR code to iPad app!<br>";
+         document.getElementById('note').innerHTML= "Show QR code to iPad app!";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
