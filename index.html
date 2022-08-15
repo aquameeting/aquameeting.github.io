@@ -98,7 +98,7 @@ tr:nth-child(even) {
          var data = {
           "key": fname.value + lname.value + date.value + '&checkin=Now'
         }
-        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' + '&checkin=Now') {
+        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '') {
      createqrcode(data);
 } else {
     alert("All fields required!")
