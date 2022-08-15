@@ -60,6 +60,8 @@ tr:nth-child(even) {
     <center>
      <div id="note"></div> <br>
      <canvas id="qrcode"></canvas> 
+     <br> <a href="#" id="downloader" onclick="download()" download="image.png">Download!</a>
+<canvas id="qrcode"></canvas>
     </center>
     </div>
     <form>
@@ -119,8 +121,8 @@ tr:nth-child(even) {
   size: 250,
   value: key
 });
-       <br> <a href="#" id="downloader" onclick="download()" download="image.png">Download!</a>
-<canvas id="qrcode"></canvas>
+        document.getElementById('downloader').style.visibility = 'visible';
+        document.getElementById('downloader').style.display = 'contents';
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
@@ -139,8 +141,9 @@ tr:nth-child(even) {
        }
       document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
    document.getElementById("reset").addEventListener("click", loadweb);
-  document.getElementById('reset').style.visibility = 'hidden';
- 
+  document.getElementById('downloader').style.visibility = 'hidden';
+  document.getElementById('downloader').style.display = 'none';
+      
         var queryString = window.location.search;
       console.log(queryString);
       var urlParams = new URLSearchParams(queryString);
