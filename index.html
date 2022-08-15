@@ -135,6 +135,25 @@ tr:nth-child(even) {
       document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
    document.getElementById("reset").addEventListener("click", loadweb);
   document.getElementById('reset').style.visibility = 'hidden';
+ 
+        var queryString = window.location.search;
+      console.log(queryString);
+      var urlParams = new URLSearchParams(queryString);
+      
+      var keyid = urlParams.get('key')
+      console.log(keyid);
+     
+// empty string
+if (keyid != null && keyid != '') {
+  console.log('string is NOT empty');
+  var data = {
+          "key": keyid
+        }
+        key_id="";
+        createqrcode(data);
+} else {
+  console.log('string IS empty');
+}
         })();
   </script>
 </html>
