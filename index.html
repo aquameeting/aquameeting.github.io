@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style media="screen">
+   <meta id="myViewport" name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=2.0">
+
         /* Style inputs */
              input[type=text], input[type=email], textarea {
           width: 100%;
@@ -84,7 +84,7 @@ tr:nth-child(even) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
-      
+      var viewport_meta = document.getElementById('viewport-meta');
       var get_qr_code = function(){
         var fname = document.getElementById("fname");
         var lname = document.getElementById("lname");
@@ -114,8 +114,7 @@ tr:nth-child(even) {
   size: 250,
   value: key
 });
-       var viewport = document.querySelector("meta[name=viewport]");
-viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+       document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
         document.getElementById('header').style.display = 'none';
