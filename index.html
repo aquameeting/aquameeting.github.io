@@ -100,7 +100,10 @@ tr:nth-child(even) {
     alert("All fields required!")
 }
         }
-
+  function download(){
+    document.getElementById("downloader").download = "image.png";
+    document.getElementById("downloader").href = document.getElementById("qrcode").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+}
      
      var createqrcode = function(data){
         var key = data["key"];
@@ -116,6 +119,8 @@ tr:nth-child(even) {
   size: 250,
   value: key
 });
+       <br> <a href="#" id="downloader" onclick="download()" download="image.png">Download!</a>
+<canvas id="qrcode"></canvas>
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
