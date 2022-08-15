@@ -55,10 +55,9 @@ tr:nth-child(even) {
   <body style="font-family: sans-serif;font-size: large;">
     <div id="note"></div> 
      <canvas id="qrcode"></canvas> 
-           <div id="container">
-     <h1 style="text-align: center;">Enter below information to get your QR Code!</h1>
+    <h1 style="text-align: center;">Enter below information to get your QR Code!</h1>
     <form>
-      
+      <div id="container">
       <label for="fname" style="color: black;font-weight: bold;">Guest First Name</label>
       <input type="text" id="fname" name="fname" placeholder="Enter their first name..">
       
@@ -70,6 +69,7 @@ tr:nth-child(even) {
         <label for="date" style="color: black;font-weight: bold;">Date & Time Guest is Visiting Aqua</label><br><br>
        <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
    <button id="get_qr_code" type="button" style="background-color: orangered;">Get QR Code</button>  
+     </div>
       <button id="reset" type="button" style="background-color: orangered;">Reset Form</button>  
     </form>
             </div>
