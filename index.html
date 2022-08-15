@@ -87,16 +87,12 @@ tr:nth-child(even) {
       var viewport_meta = document.getElementById('viewport-meta');
       var get_qr_code = function(){
         var fname = document.getElementById("fname");
-        console.log(fname);
-        fname = fname.trim();
-        console.log(fname);
+        console.log(fname.value.trim());
         var lname = document.getElementById("lname");
-         console.log(lname);
-        lname = lname.trim();
-        console.log(lname);
+         console.log(lname.value.trim());
           var date = document.getElementById("date");
          var data = {
-          "key": fname.value + lname.value + date.value + '&checkin=Now'
+          "key": fname.value.trim() + lname.value.trim() + date.value + '&checkin=Now'
         }
         if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '') {
      createqrcode(data);
