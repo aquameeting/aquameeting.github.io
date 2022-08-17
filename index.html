@@ -151,7 +151,7 @@ tr:nth-child(even) {
 if (keyid != null && keyid != '') {
   console.log('string is NOT empty');
   var data = {
-          "key": keyid
+          "key": keyid + "&checkin=Now"
         }
         key_id="";
         createqrcode(data);
