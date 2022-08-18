@@ -94,6 +94,7 @@ tr:nth-child(even) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
+      document.getElementById('reset').style.visibility = 'hidden';
       var viewport_meta = document.getElementById('viewport-meta');
       var get_qr_code = function(){
         var fname = document.getElementById("fname");
@@ -193,6 +194,7 @@ if (keyid != null && keyid != '') {
 } else {
   console.log('string IS empty');
 }
+        
         })();
   </script>
 </html>
