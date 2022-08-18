@@ -141,7 +141,7 @@ tr:nth-child(even) {
      var createqrcode = function(data){
         var key = data["key"];
          document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] ;
-        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to check-in</a>";
+        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
