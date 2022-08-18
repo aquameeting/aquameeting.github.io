@@ -58,9 +58,9 @@ tr:nth-child(even) {
     <div id="header"> <h2 style="text-align: center;">Enter below data to get your QR Code!</h2></div>
     <div id="qr" style="display: none;">
     <center>
-        <div id="note"></div> <br>    
-     <canvas id="qrcode"></canvas> <br>
-    <div id="createrecord"></div>
+    <div id="note"></div><br>    
+    <canvas id="qrcode"></canvas><br>
+    <div id="createrecord"></div><br><br>
     </center>
     </div>
     <form>
@@ -138,7 +138,7 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
-         document.getElementById('note').innerHTML= "Show QR code to iPad app!";
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] ;
         document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to check-in</a>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
@@ -147,7 +147,7 @@ tr:nth-child(even) {
   foreground: '#5868bf',
   foregroundAlpha: 1,
   level: 'H',
-  padding: 0,
+  padding: 20,
   size: 250,
   value: key
 });
