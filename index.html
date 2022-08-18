@@ -140,8 +140,8 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br>Scan below QR Code to iPad app to check-in";
-        document.getElementById('createrecord').innerHTML= "<b>iPad check-in users:</b><br><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+        document.getElementById('createrecord').innerHTML= "<b>'iPad check-in' users:</b><br><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
