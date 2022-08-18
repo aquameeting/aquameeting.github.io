@@ -65,11 +65,16 @@ tr:nth-child(even) {
     <form>
       <div id="container">
       <label for="fname" style="color: black;font-weight: bold;">First Name</label>
-      <input type="text" id="fname" name="fname" placeholder="Enter their first name..">
+      <input type="text" id="fname" name="fname" placeholder="Enter your first name..">
       
        <label for="lname" style="color: black;font-weight: bold;">Last Name</label>
-      <input type="text" id="lname" name="lname" placeholder="Enter their last name..">
+      <input type="text" id="lname" name="lname" placeholder="Enter your last name..">
       
+      <label for="cname" style="color: black;font-weight: bold;">Company Name</label>
+      <input type="text" id="cname" name="cname" placeholder="Enter your compnay name..">
+        
+      <label for="message" style="color: black;font-weight: bold;">Aqua Employee & Purpose of Visit</label>
+     <textarea id="message" name="message" placeholder="Enter the name of the person you are here to see and purpose of visit.." style="height: 50px;font-family: sans-serif;"></textarea>
  
       <br>
         <label for="date" style="color: black;font-weight: bold;">Date & Time of Meeting</label><br><br>
@@ -90,11 +95,15 @@ tr:nth-child(even) {
         console.log(fname.value.trim());
         var lname = document.getElementById("lname");
          console.log(lname.value.trim());
+         var cname = document.getElementById("cname");
+         console.log(cname.value.trim());
+          var message = document.getElementById("message");
+         console.log(message.value.trim());
           var date = document.getElementById("date");
          var data = {
-          "key": fname.value.trim() + lname.value.trim() + date.value + '&checkin=Now'
+          "key": '?fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.value.trim() + '&date=' + date.value + '&checkin=Walkin'
         }
-        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '') {
+        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' && cname.value != null &&  cname.value != '' && message.value != null &&  message.value != '') {
      createqrcode(data);
 } else {
     alert("All fields required!")
@@ -104,6 +113,21 @@ tr:nth-child(even) {
     document.getElementById("downloader").download = "download.png";
     document.getElementById("downloader").href = document.getElementById("qrcode").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 }
+      
+      const currentDateTime = () => {
+  var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
+  var localISOString = new Date(Date.now() - tzoffset)
+    .toISOString()
+    .slice(0, -1);
+
+  // convert to YYYY-MM-DDTHH:MM
+  const datetimeInputString = localISOString.substring(
+    0,
+    ((localISOString.indexOf("T") | 0) + 6) | 0
+  );
+  console.log(datetimeInputString);
+  return datetimeInputString;
+};
      
      var createqrcode = function(data){
         var key = data["key"];
@@ -138,6 +162,7 @@ tr:nth-child(even) {
        }
       document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
    document.getElementById("reset").addEventListener("click", loadweb);
+      document.getElementById('cal').value = currentDateTime();
 
       
         var queryString = window.location.search;
