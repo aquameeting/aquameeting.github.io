@@ -140,7 +140,7 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<brScan below QR Code to iPad app to check-in";
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br>Scan below QR Code to iPad app to check-in";
         document.getElementById('createrecord').innerHTML= "<b>iPad check-in users:</b><br><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
@@ -161,7 +161,7 @@ tr:nth-child(even) {
          document.getElementById('container').style.display = 'none';
        document.getElementById('lname').style.visibility = 'hidden';
        document.getElementById('date').style.visibility = 'hidden';
-         document.getElementById('reset').style.visibility = 'visible';
+         document.getElementById('reset').style.visibility = 'none';
          document.getElementById('header').style.visibility = 'hidden';
        document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
