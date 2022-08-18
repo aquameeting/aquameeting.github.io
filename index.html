@@ -59,6 +59,7 @@ tr:nth-child(even) {
     <div id="qr" style="display: none;">
     <center>
      <div id="note"></div> <br>
+       <div id="createrecord"></div>
      <canvas id="qrcode"></canvas> 
     </center>
     </div>
@@ -83,6 +84,7 @@ tr:nth-child(even) {
         <label for="date" style="color: black;font-weight: bold;">Date & Time of Meeting</label><br><br>
        <input type="datetime-local" id="date" name="date" style="font-family: sans-serif;">
    <button id="get_qr_code" type="button" style="background-color: orangered;">Get QR Code</button>  
+    
      </div>
       <button id="reset" type="button" style="background-color: orangered;">Reset Form</button>  
     </form>
@@ -137,6 +139,7 @@ tr:nth-child(even) {
      var createqrcode = function(data){
         var key = data["key"];
          document.getElementById('note').innerHTML= "Show QR code to iPad app!";
+        document.getElementById('note').innerHTML= "<a href='"> + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to check-in</a>";
       var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
