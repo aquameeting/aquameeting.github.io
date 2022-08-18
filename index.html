@@ -69,6 +69,9 @@ tr:nth-child(even) {
       
        <label for="lname" style="color: black;font-weight: bold;">Last Name</label>
       <input type="text" id="lname" name="lname" placeholder="Enter your last name..">
+        
+      <label for="email" style="color: black;font-weight: bold;">Email</label>
+      <input type="text" id="email" name="email" placeholder="Enter your email..">
       
       <label for="cname" style="color: black;font-weight: bold;">Company Name</label>
       <input type="text" id="cname" name="cname" placeholder="Enter your compnay name..">
@@ -95,15 +98,17 @@ tr:nth-child(even) {
         console.log(fname.value.trim());
         var lname = document.getElementById("lname");
          console.log(lname.value.trim());
+        var email = document.getElementById("email");
+         console.log(email.value.trim());
          var cname = document.getElementById("cname");
          console.log(cname.value.trim());
           var message = document.getElementById("message");
          console.log(message.value.trim());
           var date = document.getElementById("date");
          var data = {
-          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.value.trim() + '&date=' + date.value + '&checkin=walkin'
+          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.value.trim() + '&date=' + date.value + '&checkin=walkin'
         }
-        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' && cname.value != null &&  cname.value != '' && message.value != null &&  message.value != '') {
+        if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' && cname.value != null &&  cname.value != '' && message.value != null &&  message.value != '' && email.value != null &&  email.value != '') {
      createqrcode(data);
 } else {
     alert("All fields required!")
