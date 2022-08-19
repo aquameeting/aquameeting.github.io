@@ -148,12 +148,12 @@ tr:nth-child(even) {
        console.log("ipad:" + ipad);
         var key = data["key"];
        if (mobile === 'Yes'){
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan below QR Code to iPad app to check-in";
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan Below QR Code To iPad App To Complete Check-In";
        // document.getElementById('createrecord').innerHTML= "<b>iPad Users:</b><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
        }
          if (ipad === 'Yes'){
          document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"]; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
-        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
+        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
        }
        
          var qrcode = new QRious({
