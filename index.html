@@ -94,6 +94,8 @@ tr:nth-child(even) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
+      var mobile = '';
+      var ipad = '';
       document.getElementById('reset').style.visibility = 'hidden';
       var viewport_meta = document.getElementById('viewport-meta');
       var get_qr_code = function(){
@@ -112,6 +114,8 @@ tr:nth-child(even) {
           "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email=' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.value.trim() + '&date=' + date.value + '&checkin=walkin',
           "fname": fname.value,
           "lname": lname.value
+           "mobile": mobile,
+           "ipad": ipad
          }
         if (fname.value != null &&  fname.value != '' && lname.value != null &&  lname.value != '' && date.value != null &&  date.value != '' && cname.value != null &&  cname.value != '' && message.value != null &&  message.value != '' && email.value != null &&  email.value != '') {
      createqrcode(data);
@@ -141,9 +145,16 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var key = data["key"];
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+       if (mobile === 'Yes'){
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan below QR Code to iPad app to check-in";
+       // document.getElementById('createrecord').innerHTML= "<b>iPad Users:</b><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
+       }
+         if (iPad === 'Yes'){
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"]; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
         document.getElementById('createrecord').innerHTML= "<b>iPad Users:</b><br><a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>click here to complete check-in process</a>";
-      var qrcode = new QRious({
+       }
+       
+         var qrcode = new QRious({
   element: document.getElementById("qrcode"),
   background: '#ffffff',
   backgroundAlpha: 1,
@@ -182,8 +193,31 @@ tr:nth-child(even) {
       
       var keyid = urlParams.get('key')
       console.log(keyid);
+      
+      var gmobile = urlParams.get('mobile')
+      console.log(mobile);
+      
+      var gipad = urlParams.get('ipad')
+      console.log(ipad);
+      
+// mobile string
+if (gmobile != null && gmobile != '') {
+  console.log('string is NOT empty');
+        mobile="Yes";
+} else {
+  console.log('string IS empty');
+}
+      
+// keyid string
+if (gipad != null && gipad != '') {
+  console.log('string is NOT empty');
+   gipad="Yes";
+
+} else {
+  console.log('string IS empty');
+}
      
-// empty string
+// keyid string
 if (keyid != null && keyid != '') {
   console.log('string is NOT empty');
   var data = {
