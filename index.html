@@ -144,8 +144,8 @@ tr:nth-child(even) {
 };
      
      var createqrcode = function(data){
-       console.log(mobile);
-       console.log(ipad);
+       console.log("mobile:" + mobile);
+       console.log("ipad:" + ipad);
         var key = data["key"];
        if (mobile === 'Yes'){
          document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan below QR Code to iPad app to check-in";
