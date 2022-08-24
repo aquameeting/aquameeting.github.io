@@ -226,7 +226,11 @@ if (keyid != null && keyid != '') {
         key_id="";
         createqrcode(data);
 } else {
+     gmobile='Yes';
   console.log('string IS empty');
+}
+if (gmobile === 'Yes') {
+   window.location = "https://aquafrontdesk.github.io/?today=now";
 }
         
         })();
