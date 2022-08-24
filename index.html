@@ -201,16 +201,19 @@ tr:nth-child(even) {
       var gipad = urlParams.get('ipad')
       console.log(ipad);
       
+      var gnew='Yes';
 // mobile string
 if (gmobile != null && gmobile != '') {
   console.log('string is NOT empty');
         mobile="Yes";
+        window.location = "https://aquameeting.github.io/";
 } else {
   console.log('string IS empty');
 }
       
 // keyid string
 if (gipad != null && gipad != '') {
+  gnew='';
   console.log('string is NOT empty');
    ipad="Yes";
 } else {
@@ -219,6 +222,7 @@ if (gipad != null && gipad != '') {
      
 // keyid string
 if (keyid != null && keyid != '') {
+   gnew='';
   console.log('string is NOT empty');
   var data = {
           "key": keyid + "&checkin=Now"
@@ -226,10 +230,11 @@ if (keyid != null && keyid != '') {
         key_id="";
         createqrcode(data);
 } else {
-     gmobile='Yes';
   console.log('string IS empty');
 }
-if (gmobile === 'Yes') {
+    
+      
+if (gnew === 'Yes') {
    window.location = "https://aquafrontdesk.github.io/?today=now";
 }
         
