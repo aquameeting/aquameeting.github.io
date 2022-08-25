@@ -95,6 +95,18 @@ tr:nth-child(even) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
+       var firebaseConfig = {
+         apiKey: "AIzaSyC_Wl1RgIWazRk3OhodD5QQTykOcIyZMNs",
+    authDomain: "aquacheckin-e0b0b.firebaseapp.com",
+    projectId: "aquacheckin-e0b0b",
+    storageBucket: "aquacheckin-e0b0b.appspot.com",
+    messagingSenderId: "606092531450",
+    appId: "1:606092531450:web:0cb5aa1499296eae14db43",
+    measurementId: "G-T2LP2MT4DG"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      
       var mobile = '';
       var ipad = '';
       document.getElementById('reset').style.visibility = 'hidden';
@@ -145,14 +157,29 @@ tr:nth-child(even) {
 };
      
      var createqrcode = function(data){
+        var db = firebase.firestore();
        console.log("mobile:" + mobile);
        console.log("ipad:" + ipad);
         var key = data["key"];
+        db.collection("messages").where("key", "==",key)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+             var FName = doc.data().firstname;
+           var LName = doc.data().lastname;
+    }); 
+
+    })
+    .catch((error) => {
+       console.log("Error getting documents: ", error);
+    });
          if (ipad === 'Yes'){
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"]; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+         document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
         document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
        }else{
-                document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan Below QR Code<br>to complete Check-In";
+                document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName + "<br><br>Scan Below QR Code<br>to complete Check-In";
        }
        
          var qrcode = new QRious({
