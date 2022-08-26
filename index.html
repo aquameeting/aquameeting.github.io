@@ -169,10 +169,10 @@ tr:nth-child(even) {
         varkey = data["key"];
        console.log(varkey);
              if (ipad === 'Yes'){
-         document.getElementById('note').innerHTML= "Thank you, " + data["key"]; + " " + data["key"];; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
         document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + data["key"] + "&checkin=Now" + "'>Click Here To Complete Check-In</a>";
        }else{
-                //document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br><br>Scan Below QR Code<br>to complete Check-In";
+                document.getElementById('note').innerHTML= "Thank you, " + data["fname"]  + " " + data["lname"]  + "<br><br>Scan Below QR Code<br>to complete Check-In";
        }
         db.collection("messages").where("key", "==",varkey)
     .get()
