@@ -161,6 +161,8 @@ tr:nth-child(even) {
      
      var createqrcode = function(data){
         var db = firebase.firestore();
+        var FName = "";
+       var LName = "";
        console.log("mobile:" + mobile);
        console.log("ipad:" + ipad);
         var key = data["key"];
@@ -170,8 +172,8 @@ tr:nth-child(even) {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
-             var FName = doc.data().firstname;
-           var LName = doc.data().lastname;
+            FName = doc.data().firstname;
+            LName = doc.data().lastname;
     }); 
 
     })
