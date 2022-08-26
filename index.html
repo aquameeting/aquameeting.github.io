@@ -165,18 +165,19 @@ tr:nth-child(even) {
        var LName = "";
        console.log("mobile:" + mobile);
        console.log("ipad:" + ipad);
-        var web =  data["key"] + "&checkin=Now";
-        var key = data["key"];
-        db.collection("messages").where("key", "==",key)
+        varweb =  data["key"] + "&checkin=Now";
+        varkey = data["key"];
+       console.log(varkey);
+        db.collection("messages").where("key", "==",varkey)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            FName = doc.data().firstname;
-            LName = doc.data().lastname;
-           console.log(FName);
-           console.log(LName);
+           // console.log(doc.id, " => ", doc.data());
+            varFName = doc.data().firstname;
+            varLName = doc.data().lastname;
+           console.log(varFName);
+           console.log(varLName);
     }); 
 
     })
@@ -184,10 +185,10 @@ tr:nth-child(even) {
        console.log("Error getting documents: ", error);
     });
          if (ipad === 'Yes'){
-         document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
-        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + web + "'>Click Here To Complete Check-In</a>";
+         document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + varweb + "'>Click Here To Complete Check-In</a>";
        }else{
-                document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName + "<br><br>Scan Below QR Code<br>to complete Check-In";
+                document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br><br>Scan Below QR Code<br>to complete Check-In";
        }
        
          var qrcode = new QRious({
@@ -199,7 +200,7 @@ tr:nth-child(even) {
   level: 'H',
   padding: 20,
   size: 380,
-  value: key
+  value: varkey
 });
 
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
