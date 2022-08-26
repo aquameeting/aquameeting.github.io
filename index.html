@@ -165,6 +165,7 @@ tr:nth-child(even) {
        var LName = "";
        console.log("mobile:" + mobile);
        console.log("ipad:" + ipad);
+        var web =  data["key"] + "&checkin=Now";
         var key = data["key"];
         db.collection("messages").where("key", "==",key)
     .get()
@@ -182,7 +183,7 @@ tr:nth-child(even) {
     });
          if (ipad === 'Yes'){
          document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
-        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
+        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + web + "'>Click Here To Complete Check-In</a>";
        }else{
                 document.getElementById('note').innerHTML= "Thank you, " + FName + " " + LName + "<br><br>Scan Below QR Code<br>to complete Check-In";
        }
