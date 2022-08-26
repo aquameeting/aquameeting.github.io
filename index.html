@@ -180,6 +180,62 @@ tr:nth-child(even) {
   document.documentElement.scrollTop = 0;
       }
      
+          var createqrcodeipad = function(data){
+        var db = firebase.firestore();
+       varFName = "";
+       varLName = "";
+       console.log("mobile:" + mobile);
+       console.log("ipad:" + ipad);
+        varweb =  data["key"] + "&checkin=Now";
+        varkey = data["key"];
+       console.log(varkey);
+        db.collection("messages").where("key", "==",varkey)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+           // console.log(doc.id, " => ", doc.data());
+            varFName = doc.data().firstname;
+            varLName = doc.data().lastname;
+           console.log(varFName);
+           console.log(varLName);
+     
+                document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br><br>Scan Below QR Code<br>to complete Check-In";
+   
+    }); 
+
+    })
+    .catch((error) => {
+       console.log("Error getting documents: ", error);
+           alert("Error getting documents: ", error);
+    });
+         
+       
+         var qrcode = new QRious({
+  element: document.getElementById("qrcode"),
+  background: '#ffffff',
+  backgroundAlpha: 1,
+  foreground: '#5868bf',
+  foregroundAlpha: 1,
+  level: 'H',
+  padding: 20,
+  size: 380,
+  value: varweb
+});
+
+       document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
+        document.getElementById('qr').style.display = 'contents';
+       document.getElementById('container').style.visibility = 'hidden';
+       // document.getElementById('header').style.display = 'none';
+         document.getElementById('container').style.display = 'none';
+       document.getElementById('lname').style.visibility = 'hidden';
+       document.getElementById('date').style.visibility = 'hidden';
+         document.getElementById('reset').style.visibility = 'hidden';
+         //document.getElementById('header').style.visibility = 'hidden';
+       document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+      }
+     
       var loadweb = function(){
       window.location.href = window.location.pathname;
        }
@@ -226,10 +282,10 @@ if (keyid != null && keyid != '') {
    gnew='';
   console.log('string is NOT empty');
   var data = {
-          "key": keyid + "&checkin=Now"
+          "key": keyid 
         }
         key_id="";
-        createqrcode(data);
+        createqrcodeipad(data);
 } else {
   console.log('string IS empty');
 }
