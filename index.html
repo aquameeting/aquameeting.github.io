@@ -98,6 +98,17 @@ tr:nth-child(even) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
+       var firebaseConfig = {
+             apiKey: "AIzaSyC_Wl1RgIWazRk3OhodD5QQTykOcIyZMNs",
+    authDomain: "aquacheckin-e0b0b.firebaseapp.com",
+    projectId: "aquacheckin-e0b0b",
+    storageBucket: "aquacheckin-e0b0b.appspot.com",
+    messagingSenderId: "606092531450",
+    appId: "1:606092531450:web:0cb5aa1499296eae14db43",
+    measurementId: "G-T2LP2MT4DG"
+      };
+
+      firebase.initializeApp(firebaseConfig);
       var mobile = '';
       var ipad = '';
       document.getElementById('reset').style.visibility = 'hidden';
