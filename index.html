@@ -202,7 +202,7 @@ tr:nth-child(even) {
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
-        document.getElementById('header').style.display = 'none';
+       // document.getElementById('header').style.display = 'none';
          document.getElementById('container').style.display = 'none';
        document.getElementById('lname').style.visibility = 'hidden';
        document.getElementById('date').style.visibility = 'hidden';
@@ -258,7 +258,7 @@ if (keyid != null && keyid != '') {
    gnew='';
   console.log('string is NOT empty');
   var data = {
-          "key": keyid + "&checkin=Now"
+          "key": keyid 
         }
         key_id="";
         createqrcode(data);
