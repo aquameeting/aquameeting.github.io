@@ -92,24 +92,9 @@ tr:nth-child(even) {
             </div>
     <div id="table"></div>
   </body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script type="text/javascript">
     (function() {
-       var firebaseConfig = {
-             apiKey: "AIzaSyC_Wl1RgIWazRk3OhodD5QQTykOcIyZMNs",
-    authDomain: "aquacheckin-e0b0b.firebaseapp.com",
-    projectId: "aquacheckin-e0b0b",
-    storageBucket: "aquacheckin-e0b0b.appspot.com",
-    messagingSenderId: "606092531450",
-    appId: "1:606092531450:web:0cb5aa1499296eae14db43",
-    measurementId: "G-T2LP2MT4DG"
-      };
-
-      firebase.initializeApp(firebaseConfig);
-      
       var mobile = '';
       var ipad = '';
       document.getElementById('reset').style.visibility = 'hidden';
@@ -158,9 +143,8 @@ tr:nth-child(even) {
   console.log(datetimeInputString);
   return datetimeInputString;
 };
-
-      
- var createqrcode = function(data){
+     
+     var createqrcode = function(data){
        console.log("mobile:" + mobile);
        console.log("ipad:" + ipad);
         var key = data["key"];
@@ -183,63 +167,15 @@ tr:nth-child(even) {
   value: key
 });
 
-      
-      
-     var createqrcodeiPad = function(data){
-        var db = firebase.firestore();
-       varFName = "";
-       varLName = "";
-       console.log("mobile:" + mobile);
-       console.log("ipad:" + ipad);
-        varweb =  data["key"] + "&checkin=Now";
-        varkey = data["key"];
-       console.log(varkey);
-        db.collection("messages").where("key", "==",varkey)
-    .get()
-    .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-           // console.log(doc.id, " => ", doc.data());
-            varFName = doc.data().firstname;
-            varLName = doc.data().lastname;
-           console.log(varFName);
-           console.log(varLName);
-          if (ipad === 'Yes'){
-         document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
-        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquafrontdesk.github.io/?key=" + varweb + "'>Click Here To Complete Check-In</a>";
-       }else{
-                document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br><br>Scan Below QR Code<br>to complete Check-In";
-       }
-    }); 
-
-    })
-    .catch((error) => {
-       console.log("Error getting documents: ", error);
-           alert("Error getting documents: ", error);
-    });
-         
-       
-         var qrcode = new QRious({
-  element: document.getElementById("qrcode"),
-  background: '#ffffff',
-  backgroundAlpha: 1,
-  foreground: '#5868bf',
-  foregroundAlpha: 1,
-  level: 'H',
-  padding: 20,
-  size: 380,
-  value: varweb
-});
-
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
        document.getElementById('container').style.visibility = 'hidden';
-       // document.getElementById('header').style.display = 'none';
+        document.getElementById('header').style.display = 'none';
          document.getElementById('container').style.display = 'none';
        document.getElementById('lname').style.visibility = 'hidden';
        document.getElementById('date').style.visibility = 'hidden';
          document.getElementById('reset').style.visibility = 'hidden';
-         //document.getElementById('header').style.visibility = 'hidden';
+         document.getElementById('header').style.visibility = 'hidden';
        document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
       }
