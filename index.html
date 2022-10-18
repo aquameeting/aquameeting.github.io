@@ -166,7 +166,7 @@ tr:nth-child(even) {
          document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"]; // + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
         document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquavisitorsystem.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
        }else{
-                document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br>Scan Below QR Code<br>to complete Check-In";
+                document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br>Upon arrival at Aqua-Aerobic Systems, Inc.<br>Please Scan Below QR Code<br>via the iPad stand in our lobby<br><br><b>take screenshot to speed up check-in process!</b>";
        }
        
          var qrcode = new QRious({
@@ -175,14 +175,15 @@ tr:nth-child(even) {
   backgroundAlpha: 1,
   foreground: '#5868bf',
   foregroundAlpha: 1,
-  level: 'H',
-  padding: 20,
-  size: 380,
+  level: 'L',
+  padding: 0,
+  size: 300,
   value: key
 });
 
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
+        document.getElementById('qr').setAttribute("align", "center");
        document.getElementById('container').style.visibility = 'hidden';
         document.getElementById('header').style.display = 'none';
          document.getElementById('container').style.display = 'none';
@@ -214,7 +215,7 @@ tr:nth-child(even) {
            console.log(varFName);
            console.log(varLName);
      
-                document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br><br>CHECK-IN PROCESS:<br>Upon arrival at Aqua-Aerobic Systems<br>Please Scan Below QR Code<br>via the iPad stand in our lobby";
+                document.getElementById('note').innerHTML= "Thank you, " + varFName + " " + varLName + "<br>Upon arrival at Aqua-Aerobic Systems, Inc.<br>Please Scan Below QR Code<br>via the iPad stand in our lobby<br><br><b>take screenshot to speed up check-in process!</b>";
    
     }); 
 
@@ -231,14 +232,15 @@ tr:nth-child(even) {
   backgroundAlpha: 1,
   foreground: '#5868bf',
   foregroundAlpha: 1,
-  level: 'H',
-  padding: 20,
-  size: 380,
+  level: 'L',
+  padding: 00,
+  size: 300,
   value: varweb
 });
 
        document.getElementById("myViewport").setAttribute("content", "initial-scale=1.0, width=device-width, user-scalable=yes, minimum-scale=1.0, maximum-scale=1.0");
         document.getElementById('qr').style.display = 'contents';
+        document.getElementById('qr').setAttribute("align", "center");
        document.getElementById('container').style.visibility = 'hidden';
        // document.getElementById('header').style.display = 'none';
          document.getElementById('container').style.display = 'none';
