@@ -90,7 +90,7 @@
        document.getElementById('lname').style.visibility = 'hidden';
        document.getElementById('date').style.visibility = 'hidden';
          document.getElementById('reset').style.visibility = 'hidden';
-         document.getElementById('header').style.visibility = 'hidden';
+         //document.getElementById('header').style.visibility = 'hidden';
        document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
       }
