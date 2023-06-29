@@ -63,9 +63,9 @@
        console.log("ipad:" + ipad);
         var key = data["key"];
          if (ipad === 'Yes'){
-                key = "https://aquavisitorsystem.github.io/?key=" + key
-         document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
-        //document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquavisitorsystem.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
+           //     key = "https://aquavisitorsystem.github.io/?key=" + key
+         //document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br><br><b>Mobile Phone Users:</b><br>Scan below QR Code to iPad app to check-in";
+        document.getElementById('createrecord').innerHTML= "<a href='" + "https://aquavisitorsystem.github.io/?key=" + key + "'>Click Here To Complete Check-In</a>";
        }else{
                 document.getElementById('note').innerHTML= "Thank you, " + data["fname"] + " " + data["lname"] + "<br>Upon arrival at Aqua-Aerobic Systems, Inc.<br>Please Scan Below QR Code<br>via the iPad stand in our lobby<br><br><b>take screenshot to speed up check-in process!</b>";
        }
