@@ -241,4 +241,4 @@ function getDropdownInfo(selectElement) {
 
 // Call the function to populate the dropdown
 populateDropdown('emp.txt', 'message');
-document.getElementById('date').readOnly = true;
+document.getElementById('date').disabled = true;
