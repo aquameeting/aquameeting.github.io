@@ -26,7 +26,7 @@
          console.log(message.value.trim());
           var date = document.getElementById("date");
          var data = {
-          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email=' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.value.trim() + '&date=' + date.value + '&checkin=walkin',
+          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email=' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.options[message.selectedIndex].text + '&date=' + date.value + '&checkin=' + message.value.trim() ,
           "fname": fname.value,
           "lname": lname.value,
            "mobile": mobile,
@@ -207,3 +207,37 @@ if (keyid != null && keyid != '') {
 } else {
   console.log('string IS empty');
 }
+
+function populateDropdown(filePath, dropdownId) {
+  fetch(filePath)
+    .then(response => response.text())
+    .then(data => {
+      const dropdown = document.getElementById(dropdownId);
+      const lines = data.split('\n');
+
+      lines.forEach(line => {
+        const parts = line.split(',');
+        if (parts.length === 2) {
+          const name = parts[0].trim();
+          const value = parts[1].trim();
+
+          const option = document.createElement('option');
+          option.value = value;
+          option.text = name;
+          dropdown.add(option);
+        }
+      });
+    })
+    .catch(error => console.error('Error fetching or processing the file:', error));
+}
+
+function getDropdownInfo(selectElement) {
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  return {
+    name: selectElement.name,
+    value: selectedOption.value
+  };
+}
+
+// Call the function to populate the dropdown
+populateDropdown('emp.txt', 'message');
