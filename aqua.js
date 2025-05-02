@@ -26,7 +26,7 @@
          console.log(message.value.trim());
           var date = document.getElementById("date");
          var data = {
-          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email=' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.options[message.selectedIndex].text + '&date=' + date.value + '&checkin=' + message.value.trim() ,
+          "key": fname.value + lname.value + date.value + '&fname=' + fname.value.trim() + '&lname=' + lname.value.trim() + '&email=' + email.value.trim() + '&company=' +  cname.value.trim() + '&message=' + message.options[message.selectedIndex].text + '&date=' + date.value + '&checkin=walkin' + '&walkinid=' + message.value.trim() ,
           "fname": fname.value,
           "lname": lname.value,
            "mobile": mobile,
