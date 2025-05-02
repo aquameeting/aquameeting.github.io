@@ -160,7 +160,7 @@
       document.getElementById("get_qr_code").addEventListener("click", get_qr_code);
    document.getElementById("reset").addEventListener("click", loadweb);
       document.getElementById('date').value = currentDateTime();
-
+    
       
         var queryString = window.location.search;
       console.log(queryString);
@@ -241,3 +241,4 @@ function getDropdownInfo(selectElement) {
 
 // Call the function to populate the dropdown
 populateDropdown('emp.txt', 'message');
+document.getElementById('date').readOnly = true;
